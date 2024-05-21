@@ -154,8 +154,10 @@ function Header() {
                 marginLeft: { xs: 0, sm: 2 },
                 marginTop: { xs: 1, sm: 0 },
               }}
-              onChange={(e) => setCurrency(e.target.value)}>
-              <MenuItem value={"USD"}>USD</MenuItem>
+              onChange={(e) => setCurrency(e.target.value)}
+              >
+
+              <MenuItem defaultValue={'USD'} value={"USD"}>USD</MenuItem>
               <MenuItem value={"MXN"}>MXN</MenuItem>
               <MenuItem value={"RUB"}>RUB</MenuItem>
             </Select>
