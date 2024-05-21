@@ -7,6 +7,7 @@ import { SingleCrypto } from "../api/api";
 import { numberWithCommas } from "../components/CryptoCard";
 import { CryptoState, Crypto } from "../CryptoContext";
 import styled from "@emotion/styled";
+import { Info } from ".";
 
 const Container = styled("div")({
   display: "flex",
@@ -73,7 +74,7 @@ const CoinInfoContainer = styled("div")({
 const CoinPage = () => {
   const { id } = useParams();
   const [coin, setCoin] = useState(null);
-  const { refresh, setRefresh } = useContext(Crypto);
+  const { reflesh, setReflesh } = useContext(Crypto);
   const { currency, symbol } = CryptoState();
 
   const fetchCoin = async () => {
@@ -92,16 +93,11 @@ const CoinPage = () => {
       const updatedData = dataCoin.filter((item) => item.id !== coin.id);
       updatedData.push(coin);
       localStorage.setItem("card", JSON.stringify(updatedData));
-      setRefresh(coin);
+      setReflesh(coin);
     }
   }, [currency, coin]);
 
-  if (!coin)
-    return (
-      <LinearProgress
-        style={{ backgroundColor: "#87CEEB" }}
-      />
-    );
+  if (!coin) return <LinearProgress style={{ backgroundColor: "#87CEEB" }} />;
 
   return (
     <Container>

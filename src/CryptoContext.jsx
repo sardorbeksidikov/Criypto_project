@@ -14,7 +14,7 @@ const CryptoContext = ({ children }) => {
 
   return (
     <Crypto.Provider
-      value={{ currency, setCurrency, symbol, reflesh, setReflesh }}>
+      value={{ currency, setCurrency, symbol, setSymbol, reflesh, setReflesh }}>
       {children}
     </Crypto.Provider>
   );
